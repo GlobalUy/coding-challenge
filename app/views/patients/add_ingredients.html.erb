@@ -1,3 +1,11 @@
-<%= form_for (@patient) do |f|%>
-
+<%= form_for @patient, url: 'confirm_ingredients' do |f|%>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :surname %>
+  <%= f.text_field :surname %>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  <%= f.label :birthdate %>
+  <%= f.text_field :birthdate, :class => 'date' %>
+  <%= f.submit 'Submit' %>
 <%end%>
