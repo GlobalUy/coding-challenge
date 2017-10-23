@@ -4,12 +4,12 @@ one:
   id: MyString
   name: MyString
   min_percentage: 1
-  max_perecentage: 1
+  max_percentage: 1
   description: MyString
 
 two:
   id: MyString
   name: MyString
   min_percentage: 1
-  max_perecentage: 1
+  max_percentage: 1
   description: MyString

@@ -17,7 +17,7 @@ class IngredientsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create ingredient" do
     assert_difference('Ingredient.count') do
-      post ingredients_url, params: { ingredient: { description: @ingredient.description, id: @ingredient.id, max_perecentage: @ingredient.max_perecentage, min_percentage: @ingredient.min_percentage, name: @ingredient.name } }
+      post ingredients_url, params: { ingredient: { description: @ingredient.description, id: @ingredient.id, max_percentage: @ingredient.max_percentage, min_percentage: @ingredient.min_percentage, name: @ingredient.name } }
     end
 
     assert_redirected_to ingredient_url(Ingredient.last)
@@ -34,7 +34,7 @@ class IngredientsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update ingredient" do
-    patch ingredient_url(@ingredient), params: { ingredient: { description: @ingredient.description, id: @ingredient.id, max_perecentage: @ingredient.max_perecentage, min_percentage: @ingredient.min_percentage, name: @ingredient.name } }
+    patch ingredient_url(@ingredient), params: { ingredient: { description: @ingredient.description, id: @ingredient.id, max_percentage: @ingredient.max_percentage, min_percentage: @ingredient.min_percentage, name: @ingredient.name } }
     assert_redirected_to ingredient_url(@ingredient)
   end
 
