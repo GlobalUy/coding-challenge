@@ -53,11 +53,17 @@ class PatientsController < ApplicationController
 
   def add_ingredients
     @patient = Patient.new
+    ingredient = @patient.patients_ingredients.build
   end
 
   def confirm_ingredients
     @patient = Patient.new(patient_params)
-    
+    if @patient.save
+      redirect_to @patient
+    else
+      redirect_to request.referer
+    end
+
   end
 
   # DELETE /patients/1
@@ -79,6 +85,7 @@ class PatientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def patient_params
-      params.require(:patient).permit(:name, :surname, :address, :birthdate)
+      params.require(:patient).permit(:name, :surname, :address, :birthdate,
+       patients_ingredients_attributes: [:ingredient_id,:percentage])
     end
 end

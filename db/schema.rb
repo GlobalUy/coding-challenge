@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171022150932) do
+ActiveRecord::Schema.define(version: 20171023180950) do
 
-  create_table "formulation_ingredients", force: :cascade do |t|
+  create_table "formulation_ingredients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "formulation_id"
     t.integer "ingredient_id"
     t.integer "percentage"
@@ -22,22 +22,22 @@ ActiveRecord::Schema.define(version: 20171022150932) do
     t.index ["ingredient_id"], name: "index_formulation_ingredients_on_ingredient_id"
   end
 
-  create_table "formulations", force: :cascade do |t|
+  create_table "formulations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "ingredients", force: :cascade do |t|
+  create_table "ingredients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.integer "min_percentage"
-    t.integer "max_perecentage"
+    t.integer "max_percentage"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "patients", force: :cascade do |t|
+  create_table "patients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "surname"
     t.string "address"
@@ -46,13 +46,13 @@ ActiveRecord::Schema.define(version: 20171022150932) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "patients_ingredients", force: :cascade do |t|
+  create_table "patients_ingredients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "patient_id"
-    t.integer "ingridient_id"
+    t.integer "ingredient_id"
     t.integer "percentage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["ingridient_id"], name: "index_patients_ingredients_on_ingridient_id"
+    t.index ["ingredient_id"], name: "index_patients_ingredients_on_ingredient_id"
     t.index ["patient_id"], name: "index_patients_ingredients_on_patient_id"
   end
 

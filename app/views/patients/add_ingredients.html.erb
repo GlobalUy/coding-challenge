@@ -1,4 +1,5 @@
 <%= form_for @patient, url: 'confirm_ingredients' do |f|%>
+
   <%= f.label :name %>
   <%= f.text_field :name %>
   <%= f.label :surname %>
@@ -7,5 +8,9 @@
   <%= f.text_field :address %>
   <%= f.label :birthdate %>
   <%= f.text_field :birthdate, :class => 'date' %>
+  <%= f.fields_for :patients_ingredients do |builder| %>
+    <%= builder.collection_select :ingredient_id, Ingredient.all, :id, :name %>
+    <%= builder.number_field :percentage %>
+  <%end%>
   <%= f.submit 'Submit' %>
 <%end%>
