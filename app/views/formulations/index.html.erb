@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Formulations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @formulations.each do |formulation| %>
+      <tr>
+        <td><%= formulation.name %></td>
+        <td><%= link_to 'Show', formulation %></td>
+        <td><%= link_to 'Edit', edit_formulation_path(formulation) %></td>
+        <td><%= link_to 'Destroy', formulation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Formulation', new_formulation_path %>
