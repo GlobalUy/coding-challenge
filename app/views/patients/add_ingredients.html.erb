@@ -8,9 +8,6 @@
   <%= f.text_field :address %>
   <%= f.label :birthdate %>
   <%= f.text_field :birthdate, :class => 'date' %>
-  <%= f.fields_for :patients_ingredients do |builder| %>
-    <%= render 'patients_ingredient_fields', :f => builder %>
-  <%end%>
   <%= link_to_add_fields "Add Ingredient", f, :patients_ingredients %>
   <%= f.submit 'Submit' %>
 <%end%>
