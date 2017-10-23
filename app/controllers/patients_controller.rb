@@ -51,6 +51,10 @@ class PatientsController < ApplicationController
     end
   end
 
+  def add_ingredients
+    @patient = Patient.new
+  end
+
   # DELETE /patients/1
   # DELETE /patients/1.json
   def destroy
