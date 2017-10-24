@@ -1,2 +1,8 @@
-<%= f.collection_select :ingredient_id, Ingredient.all, :id, :name %>
-<%= f.number_field :percentage %>
+<div class='ingredients'>
+  <div class='col-md-10 ingredient-line'>
+    <%= f.collection_select :ingredient_id, Ingredient.all, :id, :name%>
+  </div>
+  <div class='col-md-2 ingredient-line'>
+    <%= f.number_field :percentage, :class => "percentage full-width" %>
+  </div>
+</div>

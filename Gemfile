@@ -18,6 +18,8 @@ gem 'bootstrap-sass', "~> 3.3.7"
 gem 'jquery-ui-rails'
 gem 'jquery-rails'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
+
+gem "select2-rails"
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes

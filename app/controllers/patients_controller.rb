@@ -53,10 +53,12 @@ class PatientsController < ApplicationController
 
   def add_ingredients
     @patient = Patient.new
+    @formulations = Formulation.all
     ingredient = @patient.patients_ingredients.build
   end
 
   def confirm_ingredients
+    byebug
     @patient = Patient.new(patient_params)
     if @patient.save
       redirect_to @patient

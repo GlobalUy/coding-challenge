@@ -21,6 +21,11 @@ class FormulationsController < ApplicationController
   def edit
   end
 
+  def formulations_for_select
+    formulation = Formulation.find_by_id(params[:formulation][:id])
+    @formulation_ingredients = formulation.formulation_ingredients
+  end
+
   # POST /formulations
   # POST /formulations.json
   def create

@@ -1,13 +1,70 @@
-<%= form_for @patient, url: 'confirm_ingredients' do |f|%>
+<div class='stripe'>
+<%= form_for @patient, url: 'patients/confirm_ingredients' do |f|%>
+  <div class='row '>
+    <div class='col-md-4 main-frame center white-background' >
+      <div class='row'>
+        <div class='col-md-6 form-group'>
+          <%= f.label :name, :class => 'sr-only' %>
+          <%= f.text_field :name, :class => 'full-width', :placeholder => "Name"%>
+        </div>
+        <div class='col-md-6'>
+          <%= f.label :surname, :class => 'sr-only' %>
+          <%= f.text_field :surname, :class => 'full-width', :placeholder => "Surname"%>
+        </div>
+        <div class='col-md-12'>
+          <%= f.label :address, :class => 'sr-only' %>
+          <%= f.text_field :address , :class => 'full-width', :placeholder => "Address"%>
+        </div>
+        <div class='col-md-12 date-field-group'>
+          <%= f.label :birthdate, :class => 'col-md-6' %>
+          <%= f.text_field :birthdate, :class => 'date col-md-6', :placeholder => "MM/DD/YYYY" %>
+        </div>
+        <div class='col-md-6'>
+          <%= link_to_add_fields "Add Ingredient", f, :patients_ingredients %>
+        </div>
+        <div class='col-md-6'>
+          <button type="button" class="green-button" data-toggle="modal" data-target="#myModal">Add Formulation</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class='col-md-12'>
+          <div id='ingredients'>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :surname %>
-  <%= f.text_field :surname %>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <%= f.label :birthdate %>
-  <%= f.text_field :birthdate, :class => 'date' %>
-  <%= link_to_add_fields "Add Ingredient", f, :patients_ingredients %>
-  <%= f.submit 'Submit' %>
-<%end%>
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-md-12'>
+          <%= f.submit 'SUBMIT',:class => 'submit-button' %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%end%>
+</div>
+
+
+
+
+
+
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= form_for :formulation ,url: formulations_for_select_path, remote: true do |g| %>
+          <%= g.collection_select :id, @formulations, :id, :name %>
+          <div class='row buttons-row'>
+            <div class='col-md-6 button-col'>
+              <button type="button" class="close-button btn" data-dismiss="modal">CLOSE</button>
+            </div>
+            <div class='col-md-6 button-col'>
+              <%= g.submit "OKAY", :class => "okay-button" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

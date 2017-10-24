@@ -11,7 +11,196 @@
  * It is generally better to create a new file per style scope.
  *
  *= require jquery-ui
+ *= require select2
+ *= require select2-bootstrap
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.stripe {
+  background: repeating-linear-gradient(
+    -60deg,
+    rgba(14, 96, 52, 0.7),
+    rgba(14, 96, 52, 0.7) 8px,
+    #55BE7C 8px,
+    #55BE7C 16px
+  );
+}
+
+.ingredients{
+  margin-top: 1em;
+}
+
+.percentage{
+  border-bottom: none !important;
+  border-bottom: 1px solid #55BE7C !important;
+  border-left: 1px solid #55BE7C !important;
+  border-top: 1px solid #55BE7C !important;
+  text-align: center;
+}
+
+.ingredient-line{
+  padding: 0 !important;
+  margin-top: 15px;
+}
+
+.full-width{
+  width: 100%;
+}
+
+.center{
+  float: none;
+  margin: 0 auto;
+}
+
+.green-button{
+  color: #52B977;
+  border: 1px solid #52B977;
+  background: #E8F8EE;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 5%;
+}
+.buttons-row{
+  margin-top: 1em;
+}
+
+.okay-button{
+  color: white;
+  background-color: #55BE7C;
+  width: 100%;
+  height: 4em !important;
+  border-bottom: none;
+  letter-spacing: 2px;
+}
+
+.button-col{
+  padding: 0 !important;
+}
+
+.close-button{
+  color: white;
+  width: 100%;
+  height: 4em !important;
+  border-radius: 0px !important;
+  padding: 0;
+  background-color: #3F775A !important;
+  letter-spacing: 2px;
+}
+
+.white-background{
+  background: white;
+}
+
+.main-frame{
+  margin-top: 7%;
+  padding-top: 2em;
+  padding-bottom: 4em;
+
+  margin-bottom: 7%;
+}
+
+input{
+  border: none;
+  border-bottom: 1px solid black;
+  &:focus{
+    outline: none;
+    outline-color: none;
+    outline-style: none;
+    outline-width: none;
+  }
+}
+
+button{
+  &:focus{
+    outline: none;
+    outline-color: none;
+    outline-style: none;
+    outline-width: none;
+  }
+}
+
+.modal-body{
+  padding-bottom: 0;
+  input{
+    &:focus{
+      outline: none;
+      outline-color: none;
+      outline-style: none;
+      outline-width: none;
+    }
+     -webkit-appearance: button;
+     -webkit-border-radius: 0px;
+     -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+     -webkit-padding-end: 20px;
+     -webkit-padding-start: 2px;
+     -webkit-user-select: none;
+     background-repeat: no-repeat;
+     border: 1px solid #55BE7C;
+     background: white;
+     color: #555;
+     height: 24px;
+     width: 100%;
+   }
+}
+
+
+
+
+.date-field-group{
+  margin-top: 1em;
+  margin-bottom: 1em;
+  input{
+    padding-bottom: 0px;
+    padding-top: 0px;
+    text-align: right;
+  }
+  label{
+    margin-bottom: 0;
+    border-bottom: 1px solid black;
+    padding-left: 0;
+    color: #736A6A;
+    font-weight: 400;
+  }
+}
+
+.ingredient-line{
+
+
+  select {
+    &:focus{
+      outline: none;
+      outline-color: none;
+      outline-style: none;
+      outline-width: none;
+    }
+     -webkit-appearance: button;
+     -webkit-border-radius: 0px;
+     -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+     -webkit-padding-end: 20px;
+     -webkit-padding-start: 2px;
+     -webkit-user-select: none;
+     background-repeat: no-repeat;
+     border: 1px solid #55BE7C;
+     background: white;
+     border-left: none;
+     border-right: none;
+     color: #555;
+     height: 24px;
+     width: 100%;
+  }
+}
+
+
+.submit-button{
+  background: #F3F3F3;
+  border: 1px solid #878787;
+  color: #4A4A4A;
+  width: 100%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  margin-top: 3em;
+  letter-spacing: 2px;
+}

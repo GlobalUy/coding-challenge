@@ -1,0 +1,13 @@
+<% @formulation_ingredients.each do |fi| %>
+  <% id = Object.new.object_id %>
+  <div class='ingredients'>
+    <div class='col-md-10 ingredient-line'>
+      <%= select_tag "patient_patients_ingredients_attributes_#{id}_ingredient_id",
+        options_from_collection_for_select(Ingredient.all,"id","name",fi.ingredient.id), name: "patient[patients_ingredients_attributes][#{id}][ingredient_id]" %>
+    </div>
+    <div class='col-md-2 ingredient-line'>
+      <%= number_field_tag "patient_patients_ingredients_attributes_#{id}_percentage", fi.percentage, name: "patient[patients_ingredients_attributes][#{id}][percentage]",
+      :class => "percentage full-width"%>
+    </div>
+  </div>
+<% end %>
