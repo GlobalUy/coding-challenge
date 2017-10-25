@@ -5,7 +5,7 @@ class PatientsIngredient < ApplicationRecord
 
   validates_presence_of :percentage
   validates_presence_of :ingredient
-  validate :accepted_percentage, if: :ingredient_present?
+  validate :accepted_percentage, if: :required_field_present?
 
   def accepted_percentage
     if !self.percentage.between?(self.ingredient.min_percentage,self.ingredient.max_percentage)
@@ -13,7 +13,7 @@ class PatientsIngredient < ApplicationRecord
     end
   end
 
-  def ingredient_present?
-    self.ingredient.present?
+  def required_field_present?
+    self.ingredient.present? && self.percentage.present?
   end
 end
