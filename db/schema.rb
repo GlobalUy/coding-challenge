@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171023191053) do
+ActiveRecord::Schema.define(version: 20171025203551) do
 
   create_table "formulation_ingredients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "formulation_id"
-    t.integer "ingredient_id"
-    t.integer "percentage"
+    t.bigint "formulation_id"
+    t.bigint "ingredient_id"
+    t.float "percentage", limit: 24
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["formulation_id"], name: "index_formulation_ingredients_on_formulation_id"
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20171023191053) do
 
   create_table "ingredients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
-    t.integer "min_percentage"
-    t.integer "max_percentage"
+    t.float "min_percentage", limit: 24
+    t.float "max_percentage", limit: 24
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -48,13 +48,17 @@ ActiveRecord::Schema.define(version: 20171023191053) do
   end
 
   create_table "patients_ingredients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "patient_id"
-    t.integer "ingredient_id"
-    t.integer "percentage"
+    t.bigint "patient_id"
+    t.bigint "ingredient_id"
+    t.float "percentage", limit: 24
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ingredient_id"], name: "index_patients_ingredients_on_ingredient_id"
     t.index ["patient_id"], name: "index_patients_ingredients_on_patient_id"
   end
 
+  add_foreign_key "formulation_ingredients", "formulations"
+  add_foreign_key "formulation_ingredients", "ingredients"
+  add_foreign_key "patients_ingredients", "ingredients"
+  add_foreign_key "patients_ingredients", "patients"
 end

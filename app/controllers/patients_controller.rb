@@ -1,42 +1,31 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy, :build_pdf]
 
-  # GET /patients
-  # GET /patients.json
+
   def index
     @patients = Patient.all
   end
 
-  # GET /patients/1
-  # GET /patients/1.json
   def show
   end
 
-  # GET /patients/new
   def new
     @patient = Patient.new
     @formulations = Formulation.all
-    ingredient = @patient.patients_ingredients.build
   end
 
-  # GET /patients/1/edit
   def edit
   end
 
-  # POST /patients
-  # POST /patients.json
   def create
     @patient = Patient.new(patient_params)
-    @formulations = Formulation.all
-    ingredient = @patient.patients_ingredients.build
 
     respond_to do |format|
       if @patient.save
         format.html { redirect_to build_pdf_path(@patient, format: :pdf) }
-        format.json { render :show, status: :created, location: @patient }
       else
+        @formulations = Formulation.all
         format.html { render :new }
-        format.json { render json: @patient.errors, status: :unprocessable_entity }
       end
     end
   end
