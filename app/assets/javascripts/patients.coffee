@@ -6,4 +6,5 @@ $(document).on 'ready page:load', () ->
       time = new Date().getTime()
       regexp = new RegExp($(this).data('id'), 'g')
       $('#ingredients').append($(this).data('fields').replace(regexp, time))
+      configure_select2_combos();
       event.preventDefault()

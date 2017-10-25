@@ -61,6 +61,11 @@ class IngredientsController < ApplicationController
     end
   end
 
+  def search
+    query = params[:q]
+    @ingredients = Ingredient.search(query)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_ingredient

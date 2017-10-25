@@ -6,7 +6,8 @@ build_backend_datepickers = ->
     $(this).datepicker({
       changeMonth: true,
       changeYear: true,
-      dateFormat: 'dd-mm-yy'
+      yearRange: "-100:-0",
+      dateFormat: 'mm/dd/yy'
     })
     return
   return

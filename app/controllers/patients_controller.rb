@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-  before_action :set_patient, only: [:show, :edit, :update, :destroy]
+  before_action :set_patient, only: [:show, :edit, :update, :destroy, :build_pdf]
 
   # GET /patients
   # GET /patients.json
@@ -58,14 +58,21 @@ class PatientsController < ApplicationController
   end
 
   def confirm_ingredients
-    byebug
     @patient = Patient.new(patient_params)
     if @patient.save
-      redirect_to @patient
+      redirect_to build_pdf_path(@patient, format: :pdf)
     else
       redirect_to request.referer
     end
+  end
 
+  def build_pdf
+    respond_to do |format|
+      format.pdf do
+        pdf = ReportPdf.new(@patient)
+        send_data pdf.render, filename: 'report.pdf', type: 'application/pdf'
+      end
+    end
   end
 
   # DELETE /patients/1
