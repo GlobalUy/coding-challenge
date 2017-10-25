@@ -229,3 +229,39 @@ button{
   margin-top: 3em;
   letter-spacing: 2px;
 }
+
+div#error_explanation {
+  padding: 5px 10px 0px 10px;
+  margin-bottom: 1em;
+  border: 1px solid red;
+  h2 {
+    margin-top: 0px;
+  }
+}
+
+.field_with_errors {
+  ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    red;
+  }
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    red;
+   opacity:  1;
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    red;
+   opacity:  1;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    red;
+  }
+  ::-ms-input-placeholder { /* Microsoft Edge */
+   color:    red;
+  }
+  input {
+      border-bottom: 1px solid red;
+  }
+  label {
+    border-bottom: 1px solid red;
+    color: red;
+  }
+}
