@@ -27,4 +27,9 @@ development:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  adapter: mysql2
+  encoding: utf8
+  database: coding_challenge
+  username: root
+  password: pepe
+  host: localhost
