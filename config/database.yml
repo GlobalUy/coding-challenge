@@ -30,5 +30,5 @@ production:
   adapter: postgresql
   encoding: unicode
   database: coding_challenge
-  username: root
-  password: pepe
+  username: nacho
+  password: 
