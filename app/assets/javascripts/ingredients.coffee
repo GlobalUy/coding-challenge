@@ -7,7 +7,7 @@ build_backend_datepickers = ->
       changeMonth: true,
       changeYear: true,
       yearRange: "-100:-0",
-      dateFormat: 'mm/dd/yy'
+      dateFormat: 'yy/mm/dd'
     })
     return
   return

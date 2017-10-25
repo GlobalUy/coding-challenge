@@ -6,7 +6,9 @@
         {name: "patient[patients_ingredients_attributes][#{id}][ingredient_id]", :class => 'select2', :data => { 'select2-source' => ingredients_search_path,'selected-id': fi.ingredient.id , 'selected-text': fi.ingredient.name}} %>
     </div>
     <div class='col-md-2 ingredient-line'>
-      <%= number_field_tag "patient_patients_ingredients_attributes_#{id}_percentage", fi.percentage, name: "patient[patients_ingredients_attributes][#{id}][percentage]",
+      <%= number_field_tag "patient_patients_ingredients_attributes_#{id}_percentage", fi.percentage, 
+      :name => "patient[patients_ingredients_attributes][#{id}][percentage]",
+      :step => "0.01",
       :class => "percentage full-width"%>
     </div>
   </div>

@@ -1,8 +1,28 @@
-<div class='ingredients'>
-  <div class='col-md-10 ingredient-line'>
-    <%= f.text_field :ingredient_id, {:class => 'select2', :data => { 'select2-source' => ingredients_search_path}}%>
-  </div>
-  <div class='col-md-2 ingredient-line'>
-    <%= f.number_field :percentage, :class => "percentage full-width" %>
-  </div>
+<div class=''>
+	<div class='col-md-10 ingredient-line'>
+		<% if patient_ingredient.nil? || patient_ingredient.ingredient.nil? %>
+			<%= f.text_field :ingredient_id, {:class => 'select2', :data => { 'select2-source' => ingredients_search_path}}%>
+		<% else %>
+	      	<%= text_field_tag "patient_patients_ingredients_attributes_#{patient_ingredient.object_id}_ingredient_id", nil,{
+		      	name: "patient[patients_ingredients_attributes][#{patient_ingredient.object_id}][ingredient_id]", 
+		      	:class => 'select2', 
+		      	:data => { 
+		      		'select2-source' => ingredients_search_path,
+		      		'selected-id': patient_ingredient.ingredient.id,
+		      		'selected-text': patient_ingredient.ingredient.name
+		    }} %>
+		<% end %>
+	</div>
+	<div class='col-md-2 ingredient-line'>
+		<% if patient_ingredient.nil? %>
+			<%= f.number_field :percentage, :step => "0.01", :class => "percentage full-width" %>
+		<% else %>
+      		<%= number_field_tag "patient_patients_ingredients_attributes_#{patient_ingredient.object_id}_percentage", 
+      			patient_ingredient.percentage, 
+      			:name => "patient[patients_ingredients_attributes][#{patient_ingredient.object_id}][percentage]",
+      			:step => "0.01",
+      			:class => "percentage full-width"%>
+		<% end %>
+	</div>
 </div>
+

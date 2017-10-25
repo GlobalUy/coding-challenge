@@ -8,3 +8,5 @@ $(document).on 'ready page:load', () ->
       $('#ingredients').append($(this).data('fields').replace(regexp, time))
       configure_select2_combos();
       event.preventDefault()
+      return
+  configure_select2_combos();
