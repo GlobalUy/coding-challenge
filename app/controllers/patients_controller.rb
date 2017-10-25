@@ -15,6 +15,8 @@ class PatientsController < ApplicationController
   # GET /patients/new
   def new
     @patient = Patient.new
+    @formulations = Formulation.all
+    ingredient = @patient.patients_ingredients.build
   end
 
   # GET /patients/1/edit
@@ -25,10 +27,12 @@ class PatientsController < ApplicationController
   # POST /patients.json
   def create
     @patient = Patient.new(patient_params)
+    @formulations = Formulation.all
+    ingredient = @patient.patients_ingredients.build
 
     respond_to do |format|
       if @patient.save
-        format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
+        format.html { redirect_to build_pdf_path(@patient, format: :pdf) }
         format.json { render :show, status: :created, location: @patient }
       else
         format.html { render :new }
@@ -53,8 +57,7 @@ class PatientsController < ApplicationController
 
   def add_ingredients
     @patient = Patient.new
-    @formulations = Formulation.all
-    ingredient = @patient.patients_ingredients.build
+
   end
 
   def confirm_ingredients

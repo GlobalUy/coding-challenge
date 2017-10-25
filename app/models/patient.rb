@@ -6,6 +6,8 @@ class Patient < ApplicationRecord
   accepts_nested_attributes_for :patients_ingredients
   validates_associated :patients_ingredients
 
+  validates_presence_of :name, :surname, :birthdate
+
 
   def fullname
     "#{self.name} #{self.surname}"
