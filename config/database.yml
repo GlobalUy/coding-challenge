@@ -27,9 +27,8 @@ development:
 
 production:
   <<: *default
-  adapter: mysql2
-  encoding: utf8
+  adapter: postgresql
+  encoding: unicode
   database: coding_challenge
   username: root
   password: pepe
-  host: localhost
